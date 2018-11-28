@@ -2,7 +2,10 @@
 
 namespace FinalP3\Http\Controllers;
 
+use finalp3\Producto;
 use Illuminate\Http\Request;
+use Illuminate\support\facades\Storage;
+use finalp3\http\requests\StoreProductosRequest;
 
 class ProductoController extends Controller
 {
@@ -23,7 +26,7 @@ class ProductoController extends Controller
      */
     public function create(Request $request)
     {
-        
+
          return view('productos.create');
     }
 
@@ -33,9 +36,21 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductosRequest $request)
     {
-        return $request->all();
+        $producto = new Producto();
+
+        $producto->id_producto = $request->input('id_producto');
+        $cantidad_roducto = ($request->input('cantidadCaja'))*($request->input('cantidadPorCaja'));
+        $producto->nom_prod =           $request->input('nom_prod');
+        $producto->prec_venta_total =   $request->input('prec_venta_total');
+        $producto->prec_venta_unidad =  $request->input('prec_venta_unidad');
+        $producto->prec_compra =        $request->input('prec_compra');
+        $producto->fecha_venc =         $request->input('fecha_venc');
+        $producto->stock =              $request->input('stock');
+        $producto->save();
+
+        echo $cantidadProducto;
     }
 
     /**
