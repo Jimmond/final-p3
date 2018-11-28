@@ -13,7 +13,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        return view('empleados.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+       return view('empleados.create');
     }
 
     /**
