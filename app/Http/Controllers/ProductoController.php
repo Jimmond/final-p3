@@ -21,9 +21,10 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('productos.create');
+        
+         return view('productos.create');
     }
 
     /**
@@ -34,7 +35,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**

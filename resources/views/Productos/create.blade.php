@@ -4,19 +4,34 @@
 
 
 @section('content')    
-    <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+    
+<form method="POST" action="/productos" class="form-group col-md-6">
+  {{ csrf_field() }}
+ 
+    
+    <label for="nombreProducto">Nombre</label>
+    <input type="text" name="nombreProducto" id="nombreProducto" class="form-control" value="">
+    
+    <label for="precioPorCaja">precio por mayor</label>
+    <input type="number" class="form-control" id="precioPorCaja" aria-describedby="preciocaja" placeholder="precio por caja">
+
+    <label for="precioDetalle">Precio por unidad</label>
+    <input type="number" class="form-control" id="precioDetalle">
+
+    <label for="cantidadCaja"> Cantidad de cajas </label>
+    <input type="number"  name="cantidadCaja" id="cantidadCaja" class="form-control">
+
+    <label for="cantidadPorCaja"> Cantidad por caja </label>
+    <input type="number" name="cantidadPorCaja" id="cantidadPorCaja" class="form-control" >
+  
+    <label for="precioCompra"> Precio de compra </label>
+    <input type="number" name="precioCompra" id="precioCompra" class="form-control" >
+
+    <label for="fechaVencimiento"> fecha de vencimiento </label>
+    <input type="date" name="fechaVencimiento" id="fechaVencimiento" class="form-control">
+
+
+  
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection
