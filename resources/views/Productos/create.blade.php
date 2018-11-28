@@ -10,13 +10,13 @@
  
     
     <label for="nombreProducto">Nombre</label>
-    <input type="text" name="nombreProducto" id="nombreProducto" class="form-control" value="">
+    <input type="text" name="nom_prod" id="nombreProducto" class="form-control" value="">
     
     <label for="precioPorCaja">precio por mayor</label>
-    <input type="number" class="form-control" id="precioPorCaja" aria-describedby="preciocaja" placeholder="precio por caja">
+    <input type="number"  name="prec_venta_total" class="form-control" id="precioPorCaja" >
 
     <label for="precioDetalle">Precio por unidad</label>
-    <input type="number" class="form-control" id="precioDetalle">
+    <input type="number" name="prec_venta_unidad" class="form-control"  id="precioDetalle">
 
     <label for="cantidadCaja"> Cantidad de cajas </label>
     <input type="number"  name="cantidadCaja" id="cantidadCaja" class="form-control">
@@ -25,10 +25,10 @@
     <input type="number" name="cantidadPorCaja" id="cantidadPorCaja" class="form-control" >
   
     <label for="precioCompra"> Precio de compra </label>
-    <input type="number" name="precioCompra" id="precioCompra" class="form-control" >
+    <input type="number" name="prec_compra" id="precioCompra" class="form-control" >
 
     <label for="fechaVencimiento"> fecha de vencimiento </label>
-    <input type="date" name="fechaVencimiento" id="fechaVencimiento" class="form-control">
+    <input type="date" name="fecha_venc" id="fechaVencimiento" class="form-control">
 
 
   

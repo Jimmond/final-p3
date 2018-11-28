@@ -1,6 +1,6 @@
 <?php
 namespace FinalP3\Http\Requests;
- use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Foundation\Http\FormRequest;
  class StoreProductosRequest extends FormRequest
  {
      /**
