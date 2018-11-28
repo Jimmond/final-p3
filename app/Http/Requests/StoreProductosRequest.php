@@ -10,7 +10,7 @@ namespace FinalP3\Http\Requests;
       */
      public function authorize()
      {
-         return true;
+         return false;
      }
      /**
       * Get the validation rules that apply to the request.
@@ -19,14 +19,15 @@ namespace FinalP3\Http\Requests;
       */
      public function rules()
      {
-         return [
-             'id_producto' => 'required|max: 15',
-             'nom_prod' => 'required|max: 15',
-             'prec_venta_total' => 'required',
-             'prec_venta_unidad' => 'required',
-             'prec_compra' => 'required|max: 10',
-             'fecha_venc' => 'required',
-             'stock' => 'required'
-         ];
+        
+//         return [
+//             'id_producto' => 'required|max: 15',
+//             'nom_prod' => 'required|max: 15',
+//             'prec_venta_total' => 'required',
+//             'prec_venta_unidad' => 'required',
+//             'prec_compra' => 'required|max: 10',
+//             'fecha_venc' => 'required',
+//             'stock' => 'required'
+//         ];
      }
  } 
