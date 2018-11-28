@@ -1,6 +1,6 @@
 <?php
+/*use Illuminate\Http\Request;
 namespace FinalP3\Http\Requests;
-use Illuminate\Foundation\Http\FormRequest;
  class StoreProductosRequest extends FormRequest
  {
      /**
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
       *
       * @return bool
       */
-     public function authorize()
+     /*public function authorize()
      {
          return false;
      }
@@ -17,17 +17,17 @@ use Illuminate\Foundation\Http\FormRequest;
       *
       * @return array
       */
-     public function rules()
+     /*public function rules()
      {
         
-//         return [
-//             'id_producto' => 'required|max: 15',
-//             'nom_prod' => 'required|max: 15',
-//             'prec_venta_total' => 'required',
-//             'prec_venta_unidad' => 'required',
-//             'prec_compra' => 'required|max: 10',
-//             'fecha_venc' => 'required',
-//             'stock' => 'required'
-//         ];
+        return [
+            'id_producto' => 'required|max: 15',
+            'nom_prod' => 'required|max: 15',
+            'prec_venta_total' => 'required',
+            'prec_venta_unidad' => 'required',
+            'prec_compra' => 'required|max: 10',
+            'fecha_venc' => 'required',
+            'stock' => 'required'
+    ];
      }
  } 
