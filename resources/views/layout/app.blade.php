@@ -38,5 +38,7 @@
     <div class="container">
         @yield('content')
     </div>
+    <br>
+    <footer>&copy; Copyright 2018 Farmacia Xpress</footer>
 </body>
 </html>
