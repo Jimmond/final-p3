@@ -15,8 +15,8 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('productos.index');
+    { $productos = Producto::all();
+        return view('productos.index', compact('productos'));
     }
 
     /**
@@ -50,7 +50,7 @@ class ProductoController extends Controller
         // $producto->stock =              $request->input('stock');
         $producto->save();
 
-        return 'SALVADO';
+        return 'SALVADO <button href="index" class="btn btn-success">Volver</button>';
     }
 
     /**
