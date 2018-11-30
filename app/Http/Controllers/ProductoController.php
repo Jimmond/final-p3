@@ -5,7 +5,7 @@ namespace FinalP3\Http\Controllers;
 use FinalP3\Producto;
 use Illuminate\Http\Request;
 use Illuminate\support\facades\Storage;
-use finalp3\http\requests\StoreProductosRequest;
+use FinalP3\Http\Requests\StoreProductoRequest;
 
 class ProductoController extends Controller
 {
@@ -36,8 +36,9 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductoRequest $request)
     {
+
         $producto = new Producto();
 
         // $producto->id_producto = $request->input('id_producto');
@@ -50,7 +51,7 @@ class ProductoController extends Controller
         // $producto->stock =              $request->input('stock');
         $producto->save();
 
-        return 'SALVADO <button href="index" class="btn btn-success">Volver</button>';
+        return 'SALVADO <a href="/productos/" class="btn btn-success" style="outline:green; color:white; background-color:black; padding:10px; border-radius:5px;">Volver</a>';
     }
 
     /**
@@ -59,9 +60,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Producto $producto)
     {
-        //
+        return view('productos.show',compact('producto'));
     }
 
     /**
@@ -70,9 +71,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Producto $producto)
     {
-        //
+        return view('productos.edit', compact('producto'));
     }
 
     /**
@@ -82,9 +83,12 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductoRequest $request, Producto $producto)
     {
-        //
+        $producto->fill($request->all());
+        $producto->save();
+        return redirect()->route('productos.show', [$producto])->with('status','Operacion realizada de manera exitosa');
+
     }
 
     /**
@@ -93,8 +97,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Producto $producto)
     {
-        //
+        $producto->destroy($producto->id);
+          return redirect()->route('productos.index');
     }
 }
