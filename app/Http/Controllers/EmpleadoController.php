@@ -1,6 +1,7 @@
 <?php
 
 namespace FinalP3\Http\Controllers;
+use FinalP3\Empleado;
 
 use Illuminate\Http\Request;
 
@@ -34,7 +35,14 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empleado = new Empleado;
+        $empleado->nom_empl = $request->input('nom_empl');
+        $empleado->email_empl = $request->input('email_empl');
+        $empleado->cargo = $request->input('cargo');
+        $empleado->tel_empl = $request->input('tel_empl');
+        $empleado->save();
+        return "Guardado <a href=\"/empleados/\">hello</a>";
+
     }
 
     /**
@@ -56,7 +64,7 @@ class EmpleadoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('empleados.edit');
     }
 
     /**

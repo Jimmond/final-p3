@@ -42,7 +42,7 @@ class ClienteController extends Controller
         $cliente->email_cli = $request->input('email_cli');
         $cliente->tel_cli = $request->input('tel_cli');
         $cliente->save();
-        return 'SALVADO <a href="/clientes/" class="btn btn-success" style="outline:green; color:white; background-color:black; padding:10px; border-radius:5px;">Volver</a>';
+        return 'SALVADO <a href="/clientes/">Volver</a>';
     }
 
     /**
