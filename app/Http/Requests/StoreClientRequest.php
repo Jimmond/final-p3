@@ -4,7 +4,7 @@ namespace FinalP3\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductoRequest extends FormRequest
+class StoreClientRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,9 @@ class StoreProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom_prod' => 'required|max: 30| min: 3',
-            'prec_venta_total' => 'required',
-            'prec_venta_unidad' => 'required',
-            'prec_compra' => 'nullable',
-            'fecha_venc' => 'nullable|date'
+          'email_cli' => 'required|max:30|email',
+          'tel_cli' => 'required|max:10',
+          'nom_cli' => 'required|max:30'
         ];
     }
 }

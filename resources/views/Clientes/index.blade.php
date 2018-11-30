@@ -5,38 +5,40 @@
 
 @section('content')
 <div class="container">
+
+<a href="/clientes/create">Registrar</a>
  <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Telefono</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    @foreach ($clientes as $cliente)
+      <tr>
+        <td>{{$cliente->nom_cli}}</td>
+        <td>{{$cliente->email_cli}}</td>
+        <td>{{$cliente->tel_cli}}</td>
+        <td><a href="/clientes/{{$cliente->id}}/edit/">Editar</a></td>
+        <td>
+          <form class="form-group" action="clientes/{{$cliente->id}}" method="post">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <div class="form-group">
+              <input type="submit" class="btn btn-danger" value="Eliminar"> </div>
+            </form>﻿
+          </form>
+        </td>
+      </tr>
+    @endforeach
+
   </tbody>
 </table>
 
 </div>
-    
-   
+
+
 @endsection

@@ -3,7 +3,8 @@
 namespace FinalP3\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use FinalP3\Client;
+use FinalP3\Http\Requests\StoreClientRequest;
 class ClienteController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('clientes.index');
+      $clientes = Client::all();
+        return view('clientes.index', compact('clientes'));
     }
 
     /**
@@ -34,7 +36,13 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new Client();
+
+        $cliente->nom_cli = $request->input('nom_cli');
+        $cliente->email_cli = $request->input('email_cli');
+        $cliente->tel_cli = $request->input('tel_cli');
+        $cliente->save();
+        return 'SALVADO <a href="/clientes/" class="btn btn-success" style="outline:green; color:white; background-color:black; padding:10px; border-radius:5px;">Volver</a>';
     }
 
     /**
@@ -54,9 +62,9 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $cliente)
     {
-        //
+        return view('clientes.edit', compact('cliente'));
     }
 
     /**
@@ -66,9 +74,16 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreClientRequest $request, Client $cliente)
     {
-        //
+      $cliente->fill($request->all());
+      $cliente->save();
+
+      return redirect()->route('clientes.index', [$cliente])->with('status','Operacion realizada de manera exitosa');
+
+      //return $cliente;
+
+      //return $request;
     }
 
     /**
@@ -77,8 +92,9 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $cliente)
     {
-        //
+        $cliente->destroy($cliente->id);
+        return redirect()->route('clientes.index');
     }
 }

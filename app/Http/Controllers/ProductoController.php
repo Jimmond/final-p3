@@ -41,14 +41,14 @@ class ProductoController extends Controller
 
         $producto = new Producto();
 
-        // $producto->id_producto = $request->input('id_producto');
-        //$cantidad_roducto = ($request->input('cantidadCaja'))*($request->input('cantidadPorCaja'));
+  
+        $cantidad_roducto = ($request->input('cantidadCaja'))*($request->input('cantidadPorCaja'));
         $producto->nom_prod =           $request->input('nom_prod');
-        // $producto->prec_venta_total =   $request->input('prec_venta_total');
-        // $producto->prec_venta_unidad =  $request->input('prec_venta_unidad');
-        // $producto->prec_compra =        $request->input('prec_compra');
-        // $producto->fecha_venc =         $request->input('fecha_venc');
-        // $producto->stock =              $request->input('stock');
+        $producto->prec_venta_total =   $request->input('prec_venta_total');
+        $producto->prec_venta_unidad =  $request->input('prec_venta_unidad');
+        $producto->prec_compra =        $request->input('prec_compra');
+        $producto->fecha_venc =         $request->input('fecha_venc');
+        $producto->stock =              $cantidad_roducto;
         $producto->save();
 
         return 'SALVADO <a href="/productos/" class="btn btn-success" style="outline:green; color:white; background-color:black; padding:10px; border-radius:5px;">Volver</a>';
